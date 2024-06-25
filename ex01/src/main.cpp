@@ -14,7 +14,7 @@
 #include <cstdlib>
 
 /* 
-  Ex00: Aaaaand... OPEN!
+  Ex01: Serena, my love!
   
   This exercise intends for the ClapTrap class to simulate interactions without 
   directly maintaining the state of other ClapTrap objects.
@@ -24,31 +24,25 @@
   beRepaired function - decreases energyPoint by 1, increases hitPoints by x
 */
 
-int main()
+#include "ScavTrap.hpp"
+
+int	main()
 {
-	system("clear");
-	std::cout << "------|----------|-----------|-------------|--------------|-------------" << std::endl;	
-	std::cout << "Name  | Action   |  Target   |  hitPoints  | energyPoints | attackDamage" << std::endl;
-	std::cout << "------|----------|-----------|-------------|--------------|-------------" << std::endl;
 	// Creating ClapTrap objects
 	ClapTrap claptrap1("CT1");
 	ClapTrap claptrap2("CT2");
 
-	// Testing Simulate an Attack on a Target
+	// Creating ScavTrap object
+	ScavTrap scavtrap1("ST1");
+
+	// Testing ClapTrap functionalities
 	claptrap1.attack("CT2");
-	claptrap2.attack("CT1");
-
-	// Testing Receive and Process Damage
-	claptrap1.takeDamage(3);
 	claptrap2.takeDamage(5);
+	claptrap2.beRepaired(3);
 
-	// Testing Repair and Restore Hit Points
-	claptrap1.beRepaired(2);
-	claptrap2.beRepaired(4);
-
-	// Testing edge cases
-	claptrap1.takeDamage(15); // CT1 should be destroyed
-	claptrap1.attack("CT2"); // CT1 should not be able to attack
-	claptrap1.beRepaired(5); // CT1 should not be able to be repaired
-	return 0;
+	// Testing ScavTrap functionalities
+	scavtrap1.attack("CT1");
+	scavtrap1.takeDamage(15);
+	scavtrap1.beRepaired(10);
+	scavtrap1.guardGate("CT1");
 }

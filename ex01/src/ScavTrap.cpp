@@ -10,22 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 /***************** Orthodox Canonical Format (Rule of 3) *********************/
 
-ClapTrap::ClapTrap() : name ( "default" )
+ScavTrap::ScavTrap(): ClapTrap()
 {
-	hitPoints = HIT_POINTS;
-	energyPoints = ENERGY_POINTS;
-	attackDamage = ATTACK_DAMAGE;
-	std::cout << "ClapTrap " << name << " created with "
+	name = "default";
+	hitPoints = ST_HIT_POINTS;
+	energyPoints = ST_ENERGY_POINTS;
+	attackDamage = ST_ATTACK_DAMAGE;
+	std::cout << "ScavTrap " << name << " created with "
 				<< hitPoints << " hit points, "
 				<< energyPoints << " energy points, and "
 				<< attackDamage << " attack damage." << std::endl;
 }
 
-ClapTrap::ClapTrap(ClapTrap const &other) 
+ScavTrap::ScavTrap(ScavTrap const &other): ClapTrap ( other)
 {
 	name = other.name;
 	hitPoints = other.hitPoints;    
@@ -34,7 +35,7 @@ ClapTrap::ClapTrap(ClapTrap const &other)
 		std::cout << "ClapTrap " << name << " is copied" << std::endl;
 }
 
-ClapTrap&	ClapTrap::operator=( const ClapTrap& other )
+ScavTrap&	ScavTrap::operator=( const ScavTrap& other ) : ClapTrap( other )
 {
 	std::cout << "ClapTrap " << name << " is copied from "
 			<< other.name << "\n" << std::endl;
@@ -48,14 +49,14 @@ ClapTrap&	ClapTrap::operator=( const ClapTrap& other )
 	return (*this);
 }
 
-ClapTrap::~ClapTrap() { std::cout << "ClapTrap " << name << " is destroyed" << std::endl; }
+ScavTrap::~ScavTrap() : ClapTrap { std::cout << "ScavTrap " << name << " is destroyed" << std::endl; }
 
 /**************************** Parameterized constructor  *****************************/
-ClapTrap::ClapTrap(std::string name): name( name )
+ScavTrap::ScavTrap(std::string name): ClapTrap ( name) : ( name )
 {
-	hitPoints = HIT_POINTS;
-	energyPoints = ENERGY_POINTS;
-	attackDamage = ATTACK_DAMAGE;
+	hitPoints = ST_HIT_POINTS;
+	energyPoints = ST_ENERGY_POINTS;
+	attackDamage = ST_ATTACK_DAMAGE;
 	std::cout << name << "   | is born " << " |           |     " 
 		<< this->hitPoints  << "      |      " 
 		<< this->energyPoints  << "      |    " 
@@ -64,16 +65,16 @@ ClapTrap::ClapTrap(std::string name): name( name )
 
 /**************************** Printing the value *****************************/
 
-void	ClapTrap::attack(const std::string &target)
+void	ScavTrap::attack(const std::string &target)
 {
 	if (hitPoints <= 0)
 	{
-		std::cout << "ClapTrap " << name << " cannot attack because it has no hit points left!\n";
+		std::cout << "ScavTrap " << name << " cannot attack because it has no hit points left!\n";
 			return;
 	}
 	if (energyPoints <= 0)
 	{
-		std::cout << "ClapTrap " << name << " cannot attack because it has no energy points left!\n";
+		std::cout << "ScavTrap " << name << " cannot attack because it has no energy points left!\n";
 		return;
 	}
 	energyPoints--;
@@ -83,38 +84,4 @@ void	ClapTrap::attack(const std::string &target)
 		<< this->attackDamage << std::endl;
 }
 
-void	ClapTrap::takeDamage(unsigned int amount)
-{
-	if (hitPoints <= 0)
-	{
-		std::cout << "ClapTrap " << name << " is already destroyed and cannot take more damage!\n";
-		return;
-	}
-	hitPoints -= amount;
-	if (hitPoints < 0)
-		hitPoints = 0;
-	std::cout << name << "   |  damaged " << "|    " 
-		<<  "   "  << "    |      " << this->hitPoints  << "      |      " 
-		<< this->energyPoints  << "       |    " 
-		<< this->attackDamage << std::endl;
-}
-
-void	ClapTrap::beRepaired(unsigned int amount)
-{
-	if (hitPoints <= 0)
-	{
-		std::cout << "ClapTrap " << name << " cannot be repaired because it has no hit points left!\n";
-		return;
-	}
-	if (energyPoints <= 0)
-	{
-		std::cout << "ClapTrap " << name << " cannot be repaired because it has no energy points left!\n";
-		return;
-	}
-	energyPoints--;
-	hitPoints += amount;
-	std::cout << name << "   | repaired " << "|    " 
-		<<  "   "  << "    |      " << this->hitPoints  << "      |      " 
-		<< this->energyPoints  << "       |    " 
-		<< this->attackDamage << std::endl;
-}
+void	ScavTrap::guardGate(void) const { std::cout << "ScavTrap " << _name << " is guarding the gate!" << std::endl; }    

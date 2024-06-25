@@ -10,11 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 #include <string>
 #include <iostream>
+#include <iomanip>
+#include "ClapTrap.hpp"
 
 #define RED "\033[0;91m"
 #define GREEN "\033[0;92m"
@@ -25,29 +27,25 @@
 #define GREY "\033[0;90m"
 #define RESET "\033[0m"
 
-#define HIT_POINTS		10
-#define ENERGY_POINTS	10
-#define ATTACK_DAMAGE	0
+#define ST_HIT_POINTS		100
+#define ST_ENERGY_POINTS	50
+#define ST_ATTACK_DAMAGE	20
 
-class	ClapTrap
+// Inheritance - ClapTrap is a base class, ScavTrap is a derived class
+// virtual keyword - prevents multiple instances of ClapTrap in ScavTrap,
+// ensuring correct object construction
+class	ScavTrap: virtual public ClapTrap
 {
-	private:
-		std::string			name;
-		int					hitPoints ;
-		int					energyPoints;
-		int					attackDamage;
-
 	public:
-		ClapTrap();
-		ClapTrap( const ClapTrap &other );
-		ClapTrap&	operator=( const ClapTrap &other );
-		~ClapTrap();
+		ScavTrap();
+		ScavTrap( const ClapTrap &other );
+		ScavTrap&	operator=( const ClapTrap &other );
+		~ScavTrap();
 
-		ClapTrap( std::string name );
+		ScavTrap( std::string name );
 
 		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		void	guardGate(const std::string& target);
 };
 
 #endif

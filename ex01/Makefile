@@ -24,8 +24,8 @@ YELLOW=\033[0;33m
 NC=\033[0m # No Color
 
 SRC =  main.cpp \
-		ClapTrap.cpp
-
+		ClapTrap.cpp \
+		ScavTrap.cpp
 
 OBJ_DIR= obj
 
