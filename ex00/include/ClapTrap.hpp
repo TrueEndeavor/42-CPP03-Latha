@@ -15,6 +15,7 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 #define RED "\033[0;91m"
 #define GREEN "\033[0;92m"
@@ -24,6 +25,10 @@
 #define CYAN "\033[0;96m"
 #define GREY "\033[0;90m"
 #define RESET "\033[0m"
+
+#define HIT_POINTS		10
+#define ENERGY_POINTS	10
+#define ATTACK_DAMAGE	0
 
 class	ClapTrap
 {
@@ -38,6 +43,8 @@ class	ClapTrap
 		ClapTrap( const ClapTrap &other );
 		ClapTrap&	operator=( const ClapTrap &other );
 		~ClapTrap();
+
+		ClapTrap( std::string name );
 
 		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);

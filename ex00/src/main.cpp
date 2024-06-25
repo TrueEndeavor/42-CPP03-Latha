@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "ClapTrap.hpp"
 #include <cstdlib>
 
 /* 
@@ -26,10 +26,31 @@
 
 int main()
 {
-	int returnValue;
-
 	system("clear");
-	std::cout << YELLOW << "╔═════════════════════════════════════════╗" << RESET << std::endl;
+	std::cout << "------|----------|-----------|-------------|--------------|-------------" << std::endl;	
+	std::cout << "Name  | Action   |  Target   |  hitPoints  | energyPoints | attackDamage" << std::endl;
+	std::cout << "------|----------|-----------|-------------|--------------|-------------" << std::endl;
+	// Creating ClapTrap objects
+	ClapTrap claptrap1("CT1");
+	ClapTrap claptrap2("CT2");
+
+	// Testing Simulate an Attack on a Target
+	claptrap1.attack("CT2");
+	claptrap2.attack("CT1");
+
+	// Testing Receive and Process Damage
+	claptrap1.takeDamage(3);
+	claptrap2.takeDamage(5);
+
+	// Testing Repair and Restore Hit Points
+	claptrap1.beRepaired(2);
+	claptrap2.beRepaired(4);
+
+	// Testing edge cases
+	claptrap1.takeDamage(15); // CT1 should be destroyed
+	claptrap1.attack("CT2"); // CT1 should not be able to attack
+	claptrap1.beRepaired(5); // CT1 should not be able to be repaired
+	/* std::cout << YELLOW << "╔═════════════════════════════════════════╗" << RESET << std::endl;
 	std::cout << YELLOW << "║ Creating default constructed object 'a' ║" << RESET << std::endl;
 	std::cout << YELLOW << "╚═════════════════════════════════════════╝" << RESET << std::endl;
 
@@ -76,6 +97,6 @@ int main()
 	returnValue = c.getRawBits();
 	std::cout << returnValue << std::endl;
 	std::cout << std::endl;
-	
+	 */
 	return 0;
 }

@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = towardsfixed
+NAME = claptrap
 
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
@@ -24,7 +24,7 @@ YELLOW=\033[0;33m
 NC=\033[0m # No Color
 
 SRC =  main.cpp \
-		Fixed.cpp
+		ClapTrap.cpp
 
 OBJ_DIR= obj
 
