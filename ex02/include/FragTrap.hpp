@@ -10,11 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 #include <string>
 #include <iostream>
+#include <iomanip>
+#include "ClapTrap.hpp"
 
 #define RED "\033[0;91m"
 #define GREEN "\033[0;92m"
@@ -25,28 +27,22 @@
 #define GREY "\033[0;90m"
 #define RESET "\033[0m"
 
-#define HIT_POINTS		10
-#define ENERGY_POINTS	10
-#define ATTACK_DAMAGE	0
+#define ST_HIT_POINTS		100
+#define ST_ENERGY_POINTS	50
+#define ST_ATTACK_DAMAGE	20
 
-class	ClapTrap
+// Inheritance - ClapTrap is a base class, ScavTrap is a derived class
+// virtual keyword - prevents multiple instances of ClapTrap in ScavTrap,
+// ensuring correct object construction
+class	FragTrap: public ClapTrap
 {
-	private:
-		std::string			name;
-		int					hitPoints ;
-		int					energyPoints;
-		int					attackDamage;
-
 	public:
-		ClapTrap( const ClapTrap &other );
-		ClapTrap&	operator=( const ClapTrap &other );
-		~ClapTrap();
+		FragTrap( std::string name );
+		FragTrap( const FragTrap &other );
+		FragTrap&	operator=( const FragTrap &other );
+		~FragTrap();
 
-		ClapTrap( std::string name );
-
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		void	highFivesGuys( void );
 };
 
 #endif

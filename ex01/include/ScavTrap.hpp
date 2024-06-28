@@ -34,18 +34,16 @@
 // Inheritance - ClapTrap is a base class, ScavTrap is a derived class
 // virtual keyword - prevents multiple instances of ClapTrap in ScavTrap,
 // ensuring correct object construction
-class	ScavTrap: virtual public ClapTrap
+class	ScavTrap: public ClapTrap
 {
 	public:
-		ScavTrap();
-		ScavTrap( const ClapTrap &other );
-		ScavTrap&	operator=( const ClapTrap &other );
+		ScavTrap( std::string name );
+		ScavTrap( const ScavTrap &other );
+		ScavTrap&	operator=( const ScavTrap &other );
 		~ScavTrap();
 
-		ScavTrap( std::string name );
-
 		void	attack(const std::string& target);
-		void	guardGate(const std::string& target);
+		void	guardGate();
 };
 
 #endif

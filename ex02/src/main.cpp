@@ -24,7 +24,7 @@
   beRepaired function - decreases energyPoint by 1, increases hitPoints by x
 */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int	main()
 {
@@ -33,13 +33,10 @@ int	main()
 	std::cout << "Name           | Action   |  Target   |  hitPoints  | energyPoints | attackDamage" << std::endl;
 	std::cout << "---------------|----------|-----------|-------------|--------------|-------------" << std::endl;
 	// Creating ScavTrap object
-	ScavTrap scavtrap1("ST1");
+	FragTrap fragtrap1("FT1");
 	std::cout << "---------------|----------|-----------|-------------|--------------|-------------" << std::endl;
 	
-	// Testing ScavTrap functionalities
-	scavtrap1.attack("CT1");
-	scavtrap1.takeDamage(15);
-	scavtrap1.beRepaired(10);
+	// Testing FragTrap functionalities
 	std::cout << "---------------|----------|-----------|-------------|--------------|-------------" << std::endl;
-	scavtrap1.guardGate();
+	fragtrap1.highFivesGuys();
 }

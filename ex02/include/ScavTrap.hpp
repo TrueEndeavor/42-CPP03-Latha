@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lannur-s <lannur-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/22 20:54:04 by lannur-s          #+#    #+#             */
-/*   Updated: 2024/06/22 20:54:04 by lannur-s         ###   ########.fr       */
+/*   Created: 2024/06/28 09:02:48 by lannur-s          #+#    #+#             */
+/*   Updated: 2024/06/28 09:02:48 by lannur-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 #include <string>
 #include <iostream>
+#include <iomanip>
+#include "ClapTrap.hpp"
 
 #define RED "\033[0;91m"
 #define GREEN "\033[0;92m"
@@ -25,28 +27,23 @@
 #define GREY "\033[0;90m"
 #define RESET "\033[0m"
 
-#define HIT_POINTS		10
-#define ENERGY_POINTS	10
-#define ATTACK_DAMAGE	0
+#define ST_HIT_POINTS		100
+#define ST_ENERGY_POINTS	50
+#define ST_ATTACK_DAMAGE	20
 
-class	ClapTrap
+// Inheritance - ClapTrap is a base class, ScavTrap is a derived class
+// virtual keyword - prevents multiple instances of ClapTrap in ScavTrap,
+// ensuring correct object construction
+class	ScavTrap: public ClapTrap
 {
-	private:
-		std::string			name;
-		int					hitPoints ;
-		int					energyPoints;
-		int					attackDamage;
-
 	public:
-		ClapTrap( const ClapTrap &other );
-		ClapTrap&	operator=( const ClapTrap &other );
-		~ClapTrap();
-
-		ClapTrap( std::string name );
+		ScavTrap( std::string name );
+		ScavTrap( const ScavTrap &other );
+		ScavTrap&	operator=( const ScavTrap &other );
+		~ScavTrap();
 
 		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		void	guardGate();
 };
 
 #endif

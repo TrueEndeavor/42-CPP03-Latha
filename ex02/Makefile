@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = scavtrap
+NAME = fragtrap
 
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
@@ -25,7 +25,8 @@ NC=\033[0m # No Color
 
 SRC =  main.cpp \
 		ClapTrap.cpp \
-		ScavTrap.cpp
+		ScavTrap.cpp \
+		FragTrap.cpp
 
 OBJ_DIR= obj
 
