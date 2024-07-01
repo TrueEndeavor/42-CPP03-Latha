@@ -26,7 +26,6 @@ NC=\033[0m # No Color
 SRC =  main.cpp \
 		ClapTrap.cpp
 
-
 OBJ_DIR= obj
 
 all: $(OBJ_DIR) $(NAME)

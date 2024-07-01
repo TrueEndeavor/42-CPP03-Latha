@@ -14,10 +14,10 @@
 #include <cstdlib>
 
 /* 
-  Ex01: Serena, my love!
+  Ex02: Repetitive work
   
-  This exercise intends for the ClapTrap class to simulate interactions without 
-  directly maintaining the state of other ClapTrap objects.
+  The intention of this exercise is to create a FragTrap class that inherits from ClapTrap
+  with distinct construction/destruction messages and attributes. I
   
   attack function - decreases eneryPoint by 1
   takeDamage function - decreases hitPoint by x

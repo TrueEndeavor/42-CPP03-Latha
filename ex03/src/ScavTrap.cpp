@@ -58,7 +58,7 @@ void	ScavTrap::attack(const std::string &target)
 		return;
 	}
 	energyPoints--;
-	std::cout << name << "            |  attacks " << "|    " 
+	std::cout << name << "           |  (st)attacks " << "|    " 
 		<<  target  << "    |     " << this->hitPoints  << "     |      " 
 		<< this->energyPoints  << "      |    " 
 		<< this->attackDamage << std::endl;

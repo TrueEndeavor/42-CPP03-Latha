@@ -14,12 +14,15 @@
 
 DiamondTrap::DiamondTrap(std::string name): ClapTrap ( name + "_clap_name" ), ScavTrap ( name ), FragTrap ( name )
 {
-	std::cout << "DiamondTrap constructor called" << std::endl;
 
-	this->name = ClapTrap::name;
+	this->name = name;
 	this->FragTrap::hitPoints = FT_HIT_POINTS;
 	this->ScavTrap::energyPoints = ST_ENERGY_POINTS;
 	this->FragTrap::attackDamage = FT_ATTACK_DAMAGE;
+	std::cout << "DiamondTrap " << name << "   | is born " << " |           |     " 
+		<< this->hitPoints  << "     |      " 
+		<< this->energyPoints  << "      |    " 
+		<< this->attackDamage << std::endl;
 }
 
 DiamondTrap::~DiamondTrap() { std::cout << "DiamondTrap " << name << " is destroyed" << std::endl; }
@@ -46,4 +49,8 @@ void	DiamondTrap::attack( const std::string &target )
 {
 	this->ScavTrap::attack( target );
 }
-void	DiamondTrap::whoAmI(void) { std::cout << "whoAmI" << "DiamondTrap :" << name << " is asking high five!" << std::endl; }
+void	DiamondTrap::whoAmI(void) 
+{
+	std::cout << "whoAmI " << "DiamondTrap :" << name << std::endl;
+	std::cout << "whoAmI " << "ClapTrap    :" << ClapTrap::name << std::endl;
+}

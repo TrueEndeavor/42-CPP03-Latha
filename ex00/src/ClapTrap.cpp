@@ -62,8 +62,8 @@ void	ClapTrap::attack(const std::string &target)
 		return;
 	}
 	energyPoints--;
-	std::cout << name << "   |  attacks " << "|    " 
-		<<  target  << "    |     " << this->hitPoints  << "      |      " 
+	std::cout << name << "   |  attacks " << "|   " 
+		<<  target  << "   |     " << this->hitPoints  << "      |      " 
 		<< this->energyPoints  << "       |    " 
 		<< this->attackDamage << std::endl;
 }
